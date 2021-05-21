@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import API from "../utils/API";
 import Table from "../components/Table"
+import SearchBar from "../components/SearchBar";
 import TableRow from "../components/TableRow"
 class Home extends Component {
 
@@ -16,18 +17,39 @@ class Home extends Component {
         .catch(err => console.log(err));
     };
 
+    handleInputChange = event => {
+        this.setState({  search: event.target.value.toLowerCase() });
+    };
+
+    dynamicSearch = (e) => {
+        this.setState({...this.state, results: this.state.results.name.first.filter(name => name.toLowerCase().includes(this.state.search))})
+        console.log("dynamicSearch", this.state.results);
+    }
+
+
     sortName = () => {
         if(this.state){
-        this.state.results.sort((x,y) => x.name.first - y.name.first)
+        this.setState(this.state.results.sort((x,y) => x.name.first.localeCompare(y.name.first)))
         console.log("this.state.results:", this.state.results)
+    
         }
     }
 
 render(){
-    console.log(this.state)
+    console.log(this.state.search)
+    let filteredArr = this.state.results.filter(
+        person => 
+        {
+            console.log("person", person.name.first)
+            console.log("state search", this.state.search)
+            return person.name.first.toLowerCase().includes(this.state.search)
+        });
+    console.log("filtered array", filteredArr);
+
     return(
         <div>
-            <Table sortName={this.sortName} results={this.state.results}></Table>
+            <SearchBar search={this.state.search} onChange={this.dynamicSearch} handleInputChange={this.handleInputChange}></SearchBar>
+            <Table sortName={this.sortName} results={filteredArr}></Table>
         </div>
     )
 };
