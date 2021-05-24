@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import API from "../utils/API";
 import Table from "../components/Table"
 import SearchBar from "../components/SearchBar";
-import TableRow from "../components/TableRow"
 class Home extends Component {
 
     state = {
