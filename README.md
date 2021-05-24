@@ -2,7 +2,7 @@
 ## Table of Contents 
 1. [Description](#Description)
 2. [Installation](#Installation)
-3. [Technologies]{#Technologies}
+3. [Technologies](#Technologies)
 4. [Github](#Github) 
 5. [Contact](#Contact_Me)
 6. [Heroku](#Heroku_App)
@@ -14,9 +14,8 @@ The employee directory was created to provide a directory for all the employees.
 
 1. You need to NPM I all the packages. 
 
-
 ## Technologies
-I used node.js, express.js, Mongo, and Heroku.
+I used node.js, React.js, and Git.
 
 ## Github 
 
@@ -28,4 +27,4 @@ If you have any other questions, contact me at my email : ashleyhayjinlee@gmail.
 
 ## Heroku_App
 The deployed application is through heroku :
-[Heroku TechBlog](https://warm-dawn-43668.herokuapp.com/dashboard)
+[Employee-Directory](https://ashleyhayjin.github.io/employeeDirect/)
